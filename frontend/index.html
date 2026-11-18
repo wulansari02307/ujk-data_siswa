@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sistem Informasi Data Siswa</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div>
+        <h1>🌿 Sistem Data Siswa</h1>
+        <p>Pengelolaan Data Siswa Berbasis Web</p>
+      </div>
+
+      <span class="status">● Sistem Aktif</span>
+    </header>
+
+    <main class="container">
+      <!-- STATISTIK -->
+      <section class="stats">
+        <div class="stat-card">
+          <span>Total Siswa Aktif</span>
+          <h2 id="totalSiswa">0</h2>
+          <p>Jumlah data siswa aktif</p>
+        </div>
+      </section>
+
+      <!-- NAVIGASI -->
+      <nav class="navigasi">
+        <button type="button" class="nav-btn aktif" data-halaman="halamanSiswa">
+          👨‍🎓 Data Siswa
+        </button>
+
+        <button type="button" class="nav-btn" data-halaman="halamanSampah">
+          🗑️ Tempat Sampah
+        </button>
+
+        <button type="button" class="nav-btn" data-halaman="halamanRiwayat">
+          📋 Riwayat Aktivitas
+        </button>
+      </nav>
+
+      <!-- ==================================
+         HALAMAN DATA SISWA
+    =================================== -->
+
+      <section id="halamanSiswa" class="halaman">
+        <!-- FORM SISWA -->
+        <section class="panel" id="panelForm">
+          <div class="panel-title">
+            <div>
+              <h2 id="judulForm">Tambah Data Siswa</h2>
+              <p>Masukkan informasi siswa pada formulir berikut.</p>
+            </div>
+          </div>
+
+          <form id="formSiswa">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="nisn">NISN *</label>
+
+                <input
+                  type="text"
+                  id="nisn"
+                  maxlength="6"
+                  pattern="[0-9]{6}"
+                  inputmode="numeric"
+                  placeholder="Masukkan 6 digit NISN"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="nama_siswa">Nama Lengkap *</label>
+
+                <input
+                  type="text"
+                  id="nama_siswa"
+                  placeholder="Masukkan nama siswa"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="tempat_lahir">Tempat Lahir</label>
+
+                <input
+                  type="text"
+                  id="tempat_lahir"
+                  placeholder="Contoh: Ambon"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="tanggal_lahir">Tanggal Lahir</label>
+
+                <input type="date" id="tanggal_lahir" />
+              </div>
+
+              <div class="form-group full">
+                <label for="alamat">Alamat</label>
+
+                <textarea
+                  id="alamat"
+                  rows="3"
+                  placeholder="Masukkan alamat lengkap siswa"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="jurusan">Jurusan</label>
+
+                <select id="jurusan">
+                  <option value="">Pilih jurusan</option>
+                  <option value="IPA">IPA</option>
+                  <option value="IPS">IPS</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- TOMBOL FORM -->
+            <div class="actions">
+              <button type="submit" id="tombolSimpan" class="btn-primary">
+                + Tambah Data Siswa
+              </button>
+
+              <button
+                type="button"
+                id="tombolBatal"
+                class="btn-secondary"
+                hidden
+              >
+                Batal Edit
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- TABEL SISWA -->
+        <section class="panel">
+          <div class="table-header">
+            <div>
+              <h2>Daftar Data Siswa</h2>
+              <p>Informasi seluruh siswa aktif yang tersimpan.</p>
+            </div>
+
+            <input
+              type="search"
+              id="pencarian"
+              placeholder="Cari NISN atau nama siswa..."
+            />
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>NISN</th>
+                  <th>Nama Siswa</th>
+                  <th>Tempat, Tanggal Lahir</th>
+                  <th>Alamat</th>
+                  <th>Jurusan</th>
+                  <th>Dibuat</th>
+                  <th>Diperbarui</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+
+              <tbody id="tabelSiswa">
+                <tr>
+                  <td colspan="9">Memuat data siswa...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <!-- ==================================
+         HALAMAN TEMPAT SAMPAH
+    =================================== -->
+
+      <section id="halamanSampah" class="halaman" hidden>
+        <section class="panel">
+          <div class="panel-title">
+            <div>
+              <h2>🗑️ Tempat Sampah</h2>
+              <p>Data yang dihapus dapat dipulihkan kembali.</p>
+            </div>
+
+            <button type="button" id="tombolMuatSampah" class="btn-secondary">
+              Muat Ulang
+            </button>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>NISN</th>
+                  <th>Nama Siswa</th>
+                  <th>Jurusan</th>
+                  <th>Dihapus Pada</th>
+                  <th>Dihapus Oleh</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+
+              <tbody id="tabelSampah">
+                <tr>
+                  <td colspan="7">Memuat tempat sampah...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <!-- ==================================
+         HALAMAN RIWAYAT AKTIVITAS
+    =================================== -->
+
+      <section id="halamanRiwayat" class="halaman" hidden>
+        <section class="panel">
+          <div class="panel-title">
+            <div>
+              <h2>📋 Riwayat Aktivitas</h2>
+              <p>Catatan aktivitas pengelolaan data siswa.</p>
+            </div>
+
+            <button type="button" id="tombolMuatRiwayat" class="btn-secondary">
+              Muat Ulang
+            </button>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Waktu</th>
+                  <th>NISN</th>
+                  <th>Nama Siswa</th>
+                  <th>Aktivitas</th>
+                  <th>Dilakukan Oleh</th>
+                  <th>Keterangan</th>
+                </tr>
+              </thead>
+
+              <tbody id="tabelRiwayat">
+                <tr>
+                  <td colspan="7">Memuat riwayat...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <p>Sistem Informasi Data Siswa</p>
+      </footer>
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+  </body>
+</html>

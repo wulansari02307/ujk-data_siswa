@@ -1,0 +1,471 @@
+/* =====================================
+   1. PENGATURAN DASAR
+===================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0fdf4;
+  color: #263b2e;
+  line-height: 1.5;
+}
+
+/* =====================================
+   2. HEADER
+===================================== */
+
+.header {
+  background: linear-gradient(135deg, #14532d, #15803d);
+  color: white;
+  padding: 25px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.header h1 {
+  margin-bottom: 7px;
+  font-size: 26px;
+}
+
+.header p {
+  color: #dcfce7;
+}
+
+.status {
+  color: #bbf7d0;
+  font-size: 14px;
+}
+
+/* =====================================
+   3. CONTAINER
+===================================== */
+
+.container {
+  width: 92%;
+  max-width: 1500px;
+  margin: 30px auto;
+}
+
+/* =====================================
+   4. STATISTIK
+===================================== */
+
+.stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.stat-card,
+.panel {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px #14532d12;
+}
+
+.stat-card {
+  min-width: 200px;
+  flex: 1;
+  border-left: 5px solid #16a34a;
+}
+
+.stat-card span {
+  color: #647568;
+  font-size: 14px;
+}
+
+.stat-card h2 {
+  margin-top: 10px;
+  color: #15803d;
+  font-size: 25px;
+}
+
+/* =====================================
+   5. PANEL
+===================================== */
+
+.panel {
+  margin-bottom: 25px;
+  border: 1px solid #dcfce7;
+  overflow: hidden;
+}
+
+.panel h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #166534;
+}
+
+/* =====================================
+   6. FORM
+===================================== */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #315b3c;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #bbdfc4;
+  border-radius: 7px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #ffffff;
+  color: #263b2e;
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #86efac;
+  border-color: #16a34a;
+}
+
+input:read-only {
+  background: #f0fdf4;
+  cursor: not-allowed;
+}
+
+/* =====================================
+   7. TOMBOL UMUM
+===================================== */
+
+button {
+  border: none;
+  padding: 11px 18px;
+  border-radius: 7px;
+  background: #16a34a;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: inherit;
+  transition:
+    background 0.2s,
+    opacity 0.2s;
+}
+
+button:hover {
+  background: #15803d;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-secondary {
+  background: #64748b;
+}
+
+.btn-secondary:hover {
+  background: #475569;
+}
+
+/* =====================================
+   8. NAVIGASI HALAMAN
+===================================== */
+
+.navigasi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.nav-btn {
+  border: 1px solid #d5e3d8;
+  background: white;
+  color: #245b3b;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.nav-btn:hover,
+.nav-btn.aktif {
+  background: #245b3b;
+  color: white;
+}
+
+/* =====================================
+   9. HALAMAN
+===================================== */
+
+.halaman[hidden] {
+  display: none !important;
+}
+
+/* =====================================
+   10. PENCARIAN DAN HEADER TABEL
+===================================== */
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.table-header input {
+  max-width: 320px;
+}
+
+/* =====================================
+   11. TABEL
+===================================== */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1100px;
+}
+
+th,
+td {
+  padding: 13px;
+  text-align: left;
+  border-bottom: 1px solid #dcfce7;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+th {
+  background: #dcfce7;
+  color: #166534;
+  white-space: nowrap;
+}
+
+td {
+  background: white;
+}
+
+tbody tr:hover td {
+  background: #f0fdf4;
+}
+
+/* =====================================
+   12. TOMBOL EDIT
+===================================== */
+
+.btn-edit {
+  background: #d97706;
+  margin: 3px;
+}
+
+.btn-edit:hover {
+  background: #b45309;
+}
+
+/* =====================================
+   13. TOMBOL HAPUS
+===================================== */
+
+.btn-delete {
+  background: #dc2626;
+  color: white;
+  padding: 9px 12px;
+  border-radius: 6px;
+  margin: 3px;
+}
+
+.btn-delete:hover {
+  background: #991b1b;
+}
+
+/* =====================================
+   14. TOMBOL PULIHKAN
+===================================== */
+
+.btn-restore {
+  background: #16834a;
+  color: white;
+  padding: 9px 12px;
+  border-radius: 6px;
+  margin: 3px;
+}
+
+.btn-restore:hover {
+  background: #116638;
+}
+
+/* =====================================
+   15. TOMBOL MUAT ULANG
+===================================== */
+
+#tombolMuatSampah,
+#tombolMuatRiwayat {
+  cursor: pointer;
+}
+
+/* =====================================
+   16. LABEL AKTIVITAS
+===================================== */
+
+.badge-aktivitas {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.badge-aktivitas.tambah {
+  background: #d9f5e3;
+  color: #14743a;
+}
+
+.badge-aktivitas.edit {
+  background: #fff0c2;
+  color: #876000;
+}
+
+.badge-aktivitas.hapus {
+  background: #ffe0e0;
+  color: #b42318;
+}
+
+.badge-aktivitas.pulihkan {
+  background: #dcecff;
+  color: #1756a9;
+}
+
+/* =====================================
+   17. RESPONSIVE TABLET
+===================================== */
+
+@media (max-width: 900px) {
+  .header {
+    padding: 20px 4%;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .stats {
+    gap: 12px;
+  }
+
+  .stat-card {
+    min-width: 160px;
+  }
+}
+
+/* =====================================
+   18. RESPONSIVE HP
+===================================== */
+
+@media (max-width: 650px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 21px;
+  }
+
+  .container {
+    width: 95%;
+    margin: 18px auto;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
+
+  .stat-card {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full {
+    grid-column: auto;
+  }
+
+  .navigasi {
+    flex-direction: column;
+  }
+
+  .nav-btn {
+    width: 100%;
+  }
+
+  .table-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .table-header input {
+    max-width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+
+  .panel {
+    padding: 15px;
+  }
+}
